@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #iwill {
+    position: absolute;
+  }
+
+  body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(240, 5, 130);
+  }
+
+  img {
+    width: 250px;
+    height: 200px;
+  }
+  .options{
+    gap: 10px;
+  }
+  button{
+    height: 30px;
+    width: 50px;
+    background:  rgb(240, 5, 130);
+    border: 1px solid white;
+    color: white;
+  }
+</style>
+
+<body>
+  <h1>Will you go out with me?</h1>
+  <img src="first.gif" id="img">
+  <div class="options">
+    <button id="sure">Yes</button>
+    <button id="iwill">No</button>
+  </div>
+</body>
+<script>
+  function sure() {
+    alert("Thank you beautiful")
+    document.getElementById("img").src="happy.gif"
+  }
+  function halfsure(){
+    document.getElementById("img").src="first.gif"
+  }
+  var flag = 0;
+  function no() {
+    document.getElementById("img").src="sad.gif"
+    if (flag == 0) {
+      document.getElementById("iwill").style.top = 0;
+      document.getElementById("iwill").style.right = "50px";
+      flag = 1
+      //top 0 right 50px
+    }
+    else if (flag == 1) {
+      document.getElementById("iwill").style.top = "30px";
+      document.getElementById("iwill").style.right = "20px";
+      flag = 2
+      //top 30 right 20px
+    }
+    else if (flag == 2) {
+      document.getElementById("iwill").style.top = "90px";
+      document.getElementById("iwill").style.right = "40px";
+      flag = 3
+      //top 90 right 40px
+    }
+    else if (flag == 3) {
+      document.getElementById("iwill").style.top = "200px";
+      document.getElementById("iwill").style.right = "200px";
+      flag = 4
+    }
+    else if (flag == 4) {
+      document.getElementById("iwill").style.top = "100px";
+      flag = 0
+    }
+
+  }
+  document.getElementById("sure").addEventListener("mouseover", halfsure)
+  document.getElementById("sure").addEventListener("click", sure)
+  document.getElementById("iwill").addEventListener("mouseover", no)
+</script>
+
+</html>
